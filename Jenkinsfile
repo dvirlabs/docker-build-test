@@ -1,16 +1,16 @@
 pipeline {
     agent{
             docker {
-                image 'jenkins-blueocean'
-                args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
+                image 'docker:dind'
+                args --privilage
+            }
     }
 
     stages {
 
         stage("build") {
             steps {
-                sh 'python --version'
+                sh 'echo hello world >> /tmp/echo-test.txt'
             }
         }
 
