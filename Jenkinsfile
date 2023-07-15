@@ -9,7 +9,7 @@ pipeline {
 
         stage("build") {
             steps {
-                sh 'pwd'
+                sh 'docker build -t httpd-jenkins .'
             }
         }
 
