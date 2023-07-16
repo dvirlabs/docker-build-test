@@ -1,11 +1,8 @@
 pipeline {
     agent{
             docker {
-<<<<<<< HEAD
-                image 'docker:dind'
-=======
-                image 'docker:'
->>>>>>> 01da98c (change image)
+                image 'docker:20.10.7-dind'
+                args '--privileged --group-add 999'
             }
     }
 
