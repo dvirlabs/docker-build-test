@@ -1,7 +1,7 @@
 pipeline {
     agent{
             docker {
-                image 'jenkins-blueocean:2.401.2-1'
+                image 'dvirlabs/jenkins-test:jenkins-blueocean'
                 args '-v /var/run/docker.sock:/var/run/docker.sock'
             }
     }
