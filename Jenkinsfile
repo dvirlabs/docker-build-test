@@ -6,13 +6,7 @@ pipeline {
     }
 
     stages {
-
-        stage("Check Docker") {
-            steps {
-                sh 'mkdir -m 777 /.docker'
-                sh 'docker --version'
-            }
-        }
+        
 
         stage("build") {
             steps {
