@@ -1,24 +1,19 @@
 pipeline {
-    agent any
+    agent{
+            docker {
+                image 'docker:20.10.7-dind'
+                args '--privileged --group-add 999'
+            }
+    }
 
     stages {
+        
 
         stage("build") {
             steps {
-                echo 'building the application...'
+                sh 'docker build -t httpd-jenkins .'
             }
         }
 
-        stage("test") {
-            steps {
-                echo 'testing the application...'
-            }
-        }
-
-        stage("test") {
-            steps {
-                echo 'deploying the application...'
-            }
-        }
     }
 }
