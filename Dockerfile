@@ -1,3 +1,3 @@
 FROM python
 
-RUN 'echo hello world >> testfile.txt'
+COPY hello-world.bat .
