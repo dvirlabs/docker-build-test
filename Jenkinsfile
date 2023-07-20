@@ -22,4 +22,10 @@ pipeline {
             }
         }
     }
+
+    post{
+        always {
+            emailext(subject: 'email job test' body: 'this is a test mail of a job' replyTo: 'dvirlabs@gmail.com')
+        }
+    }
 }
