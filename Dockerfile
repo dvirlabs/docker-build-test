@@ -1,3 +1,5 @@
-FROM python
+FROM httpd
 
-COPY hello-world.bat .
+RUN 'apt update && apt install vim -y'
+
+RUN 'echo hello >> test.txt'
