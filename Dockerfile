@@ -1,3 +1,3 @@
 FROM httpd
 
-RUN 'cat test'
+RUN cat test
