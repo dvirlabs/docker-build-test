@@ -2,4 +2,4 @@ FROM ubuntu
 
 SHELL [ "/bin/bash" ]
 
-RUN 'echo hello >> test.txt'
+RUN 'echo hello >> test.txt' 
