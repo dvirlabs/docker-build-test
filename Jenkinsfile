@@ -23,9 +23,11 @@ pipeline {
         }
     }
 
-    post{
-        always {
-            emailext(subject: 'email job test' body: 'this is a test mail of a job' replyTo: 'dvirlabs@gmail.com')
+        post{
+            always {
+                mail to: 'dvirlabs@gmail.com',
+                subject: 'Test email',
+                body: 'This is a test'
         }
     }
 }
