@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM python
 
 SHELL [ "/bin/bash" ]
 
