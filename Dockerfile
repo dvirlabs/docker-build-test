@@ -1,3 +1,5 @@
 FROM ubuntu
 
-RUN /bin/bash -c 'echo hello >> test.txt'
+SHELL [ "/bin/bash" ]
+
+RUN 'echo hello >> test.txt'
