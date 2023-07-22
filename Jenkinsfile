@@ -18,9 +18,11 @@ pipeline {
 
         stage("Push image") {
             steps {
-                withDockerRegistry([ credentialsId: "Auth_Dockerhub", url: "dvirlabs/jenkins_test" ]) {
-                dockerImage.push(message: "Pushing image to Docker Hub") 
+               script {
+                    withDockerRegistry([ credentialsId: "Auth_Dockerhub", url: "dvirlabs/jenkins_test" ]) {
+                    dockerImage.push(message: "Pushing image to Docker Hub") 
                 }
+               }
             }
 
         }
