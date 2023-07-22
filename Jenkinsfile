@@ -19,7 +19,7 @@ pipeline {
         stage("Push image") {
             steps {
                script {
-                    withDockerRegistry([ credentialsId: "Auth_Dockerhub", url: "https://index.docker.io/v1/" ]) {
+                    withDockerRegistry([ credentialsId: "Auth_Dockerhub", url: "https://registry-1.docker.io/v2/" ]) {
                     dockerImage.push(message: "Pushing image to Docker Hub") 
                 }
                }
