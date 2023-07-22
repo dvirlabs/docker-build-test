@@ -7,6 +7,9 @@ pipeline {
             steps {
                 echo 'building the application...'
                 sh 'docker build -t test-pipline .'
+                script {
+                    def dockerImage = docker.build(dvirlabs/jenkins-test:push-test)
+                }
             }
         }
 
@@ -19,7 +22,7 @@ pipeline {
         stage("Push image") {
             steps {
                script {
-                    withDockerRegistry([ credentialsId: "Auth_Dockerhub", url: "dvirlabs/jenkins-test" ]) {
+                    withDockerRegistry([ credentialsId: "Auth_Dockerhub", url: "https://hub.docker.com" ]) {
                     dockerImage.push(message: "Pushing image to Docker Hub") 
                 }
                }
