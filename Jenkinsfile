@@ -16,11 +16,10 @@ pipeline {
             }
         }
 
-        stage("deploy") {
-            steps {
-                echo 'deploying the application...'
-            }
-        }
-    }
+        stage('Push image') {
+                withDockerRegistry([ credentialsId: "Auth_Dockerhub", url: "dvirlabs/jenkins_test" ]) {
+                dockerImage.push()
+                }
+            }  
 
 }
