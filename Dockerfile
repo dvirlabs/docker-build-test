@@ -1,5 +1,5 @@
 FROM httpd
 
-RUN /bin/bash -c 'echo hello >> test.txt' 
+RUN 'apt-get update'
+RUN 'apt install vim -y'
 
-CMD [ "/bin/bash" ]
