@@ -7,9 +7,6 @@ pipeline {
             steps {
                 echo 'building the application...'
                 sh 'docker build -t test-pipline .'
-                script {
-                    def dockerImage = docker.build(dvirlabs/jenkins-test:push-test)
-                }
             }
         }
 
