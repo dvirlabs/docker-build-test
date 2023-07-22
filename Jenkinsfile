@@ -23,11 +23,4 @@ pipeline {
         }
     }
 
-        post{
-            always {
-                mail to: 'dvirlabs@gmail.com',
-                subject: 'Test email',
-                body: 'This is a test'
-        }
-    }
 }
