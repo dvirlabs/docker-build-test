@@ -21,6 +21,7 @@ pipeline {
         stage("Push image") {
             steps {
                script {
+                    def dockerImage = docker.build("dvirlabs/jenkins-test:push-test")
                     withDockerRegistry([ credentialsId: "Docker_Token", url: "https://registry-1.docker.io/v2/" ]) {
                     dockerImage.push(message: "Pushing image to Docker Hub") 
                 }
