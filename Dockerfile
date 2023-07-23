@@ -2,6 +2,5 @@ FROM httpd
 
 USER root
 
-RUN /bin/bash -c 'echo hello >> test.txt'
-
+RUN 'apt update'
 CMD [ "/bin/bash" ]   
