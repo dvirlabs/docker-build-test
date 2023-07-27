@@ -7,7 +7,7 @@ pipeline {
             steps {
                 echo 'building the application...'
                 script {
-                    def dockerImage = docker.build("dvirlabs/jenkins-test:push-test")
+                    def dockerImage = docker.build("dvirlabs/jenkins-test:${GIT_COMMIT}")
                 }
             }
         }
@@ -27,8 +27,9 @@ pipeline {
         }
 
         stage("Push image") {
+            withEnv(["dockerImage"])
             steps {
-                sh 'docker push dvirlabs/jenkins-test:push-test'
+                sh 'docker push '${dockerImage}'
             }
 
         }
