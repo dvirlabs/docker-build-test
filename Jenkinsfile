@@ -15,7 +15,7 @@ pipeline {
         stage("test") {
             steps {
                 echo 'testing the application...' 
-                sh 'docker --version'
+                sh 'echo The value of the GIT_COMMIT environment variable is ${env.GIT_COMMIT}'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
         stage("Push image") {
             withEnv(["dockerImage"])
             steps {
-                sh 'docker push '+''${dockerImage}
+                sh 'echo finish'
             }
 
         }
