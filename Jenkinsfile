@@ -29,7 +29,7 @@ pipeline {
         stage("Push image") {
             withEnv(["dockerImage"])
             steps {
-                sh 'docker push '${dockerImage}'
+                sh 'docker push '+''${dockerImage}'
             }
 
         }
