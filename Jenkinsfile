@@ -27,7 +27,6 @@ pipeline {
         }
 
         stage("Push image") {
-            withEnv(["dockerImage"])
             steps {
                 sh 'echo finish'
             }
