@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo 'push to dockerhub'
                 script {
-                    def dockerImage = docker.push("dvirlabs/jenkins-test:${GIT_COMMIT}")
+                    def dockerPush = docker.push("dvirlabs/jenkins-test:${GIT_COMMIT}")
                 }
             }
 
