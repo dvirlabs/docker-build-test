@@ -12,11 +12,11 @@ pipeline {
             }
         }
 
-        stage("test") {
-            steps {
-                echo 'The value of the GIT_COMMIT environment variable is ' +''+ ${env.GIT_COMMIT}
-            }
-        }
+        // stage("test") {
+        //     steps {
+        //         echo 'The value of the GIT_COMMIT environment variable is ' +''+ ${env.GIT_COMMIT}
+        //     }
+        // }
 
         stage("login") {
             steps {
