@@ -34,7 +34,7 @@ pipeline {
                 script {
                     def dockerImage = docker.push DOCKER_IMAGE
                 }
-                sh 'docker push' +' '+ dockerImage
+                sh 'docker push' +' '+ ${dockerImage}
             }
 
         }
