@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        DOCKER_IMAGE = "dvirlabs/jenkins-test:${GIT_COMMIT}"
+    }
 
     stages {
 
@@ -7,14 +10,14 @@ pipeline {
             steps {
                 echo 'building the application...'
                 script {
-                    def dockerImage = docker.build("dvirlabs/jenkins-test:${GIT_COMMIT}")
+                    def dockerImage = docker.build DOCKER_IMAGE
                 }
             }
         }
 
         // stage("test") {
         //     steps {
-        //         echo 'The value of the GIT_COMMIT environment variable is ' +''+ ${env.GIT_COMMIT}
+        //         echo 'The value of the GIT_COMMIT environment variable is ' +''+ ${env.GIT_COMMIT} 
         //     }
         // }
 
@@ -29,7 +32,7 @@ pipeline {
             steps {
                 echo 'push to dockerhub'
                 script {
-                    def dockerImage = docker.build("dvirlabs/jenkins-test:${GIT_COMMIT}")
+                    def dockerImage = docker.push DOCKER_IMAGE
                 }
                 sh 'docker push' +' '+ dockerImage
             }
