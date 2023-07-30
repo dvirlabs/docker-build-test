@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'building the application...'
                 script {
-                    def dockerImage = docker.build DOCKER_IMAGE
+                    dockerImage = docker.build DOCKER_IMAGE
                 }
             }
         }
