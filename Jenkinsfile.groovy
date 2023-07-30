@@ -1,3 +1,6 @@
+
+def dockerImage = docker.build DOCKER_IMAGE
+
 pipeline {
     agent any
     environment {
@@ -32,7 +35,7 @@ pipeline {
             steps {
                 echo 'push to dockerhub...'
                 // sh 'docker push ${dockerImage}'
-                echo 'what is dockerImage var:' + ' ' + ${dockerImage}
+                echo 'what is dockerImage var: ${dockerImage}'
             }
 
         }
