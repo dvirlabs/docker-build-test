@@ -31,7 +31,8 @@ pipeline {
         stage("Push image") {
             steps {
                 echo 'push to dockerhub...'
-                sh 'docker push ${dockerImage}'
+                // sh 'docker push ${dockerImage}'
+                echo 'what is dockerImage var: ${dockerImage}'
             }
 
         }
