@@ -8,7 +8,7 @@ pipeline {
 
         stage("build") {
             steps {
-                echo 'building the application...' 
+                echo 'building the application...'
                 script {
                     def dockerImage = docker.build DOCKER_IMAGE
                 }
@@ -17,7 +17,7 @@ pipeline {
 
         // stage("test") {
         //     steps {
-        //         echo 'The value of the GIT_COMMIT environment variable is ' +''+ ${env.GIT_COMMIT}  
+        //         echo 'The value of the GIT_COMMIT environment variable is ' +''+ ${env.GIT_COMMIT}   
         //     }
         // }
 
@@ -32,9 +32,9 @@ pipeline {
             steps {
                 echo 'push to dockerhub'
                 script {
-                    dockerImage = docker.push() DOCKER_IMAGE
+                    def dockerImage = DOCKER_IMAGE.push()
                 }
-                sh 'docker push' +' '+ ${dockerImage}
+                sh 'docker push' +' '+ dockerImage
             }
 
         }
