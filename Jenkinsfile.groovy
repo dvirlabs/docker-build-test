@@ -9,7 +9,7 @@ pipeline {
         stage("build") {
             steps {
                 echo 'building the application...'
-                sh "docker build ${DOCKER_IMAGE} ."
+                sh "docker build -t ${DOCKER_IMAGE} ."
                 // script {
                 //     docker.build DOCKER_IMAGE
                 // }
