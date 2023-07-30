@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "dvirlabs/jenkins-test:${env.GIT_COMMIT}"
+        DOCKER_IMAGE = "dvirlabs/jenkins-test:${env.GIT_BRANCH}"
     }
 
     stages {
