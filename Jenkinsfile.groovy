@@ -9,9 +9,10 @@ pipeline {
         stage("build") {
             steps {
                 echo 'building the application...'
-                script {
-                    def dockerImage = docker.build DOCKER_IMAGE
-                }
+                sh "docker build ${DOCKER_IMAGE} ."
+                // script {
+                //     docker.build DOCKER_IMAGE
+                // }
             }
         }
 
@@ -32,7 +33,7 @@ pipeline {
             steps {
                 echo 'push to dockerhub...'
                 // sh 'docker push ${dockerImage}'
-                echo "what is dockerImage var: ${dockerImage}"
+                echo "what is dockerImage var: ${DOCKER_IMAGE}"
             }
 
         }
