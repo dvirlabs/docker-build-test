@@ -32,7 +32,7 @@ pipeline {
             steps {
                 echo 'push to dockerhub'
                 script {
-                    def dockerImage = DOCKER_IMAGE.push()
+                    def dockerImage = docker.build DOCKER_IMAGE
                 }
                 sh 'docker push' +' '+ dockerImage
             }
