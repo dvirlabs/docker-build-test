@@ -30,11 +30,8 @@ pipeline {
 
         stage("Push image") {
             steps {
-                echo 'push to dockerhub'
-                script {
-                    def dockerImage = docker.build DOCKER_IMAGE
-                }
-                sh 'docker push' +' '+ dockerImage
+                echo 'push to dockerhub...'
+                sh 'docker push ${dockerImage}'
             }
 
         }
