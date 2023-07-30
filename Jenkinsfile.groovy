@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE = "dvirlabs/jenkins-test:${env.BUILD_ID}"
+        DOCKER_IMAGE = "dvirlabs/jenkins-test:${env.BUILD_TAG}"
     }
 
     stages {
